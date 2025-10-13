@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李文超 Alvin Li - 資深活動暨平面製管/專案經理</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            
+            background-image: url('https://www.paper-museum.com.tw/archive/image/product4/images/C4277-1.jpg?v=1'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            
+            color: #333;
+            /* 修正：放大基礎字體大小 */
+            font-size: 11pt; 
+        }
+
+        .resume-container {
+            width: 21cm;
+            min-height: 29.7cm;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.98); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 3.5cm 1cm 1cm 1cm;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+            .resume-container {
+                width: 21cm;
+                min-height: 29.7cm;
+                margin: 0;
+                box-shadow: none;
+                padding: 3.5cm 1cm 1cm 1cm;
+                background-color: white;
+            }
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 21cm;
+            padding: 0.5cm 0; 
+            background-color: #1C3144; 
+            color: white;
+            
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            
+            z-index: 10;
+        }
+
+        .main-content {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 35%; 
+            padding-right: 1.2cm; 
+            border-right: 1px solid #ddd;
+        }
+
+        .main-info {
+            width: 65%;
+            padding-left: 1.2cm; 
+        }
+
+        .portrait-box {
+            text-align: center;
+            margin-bottom: 15px; 
+            padding-top: 5px; 
+        }
+        .portrait {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 3%; 
+            border: 3px solid #1C3144; 
+            box-shadow: 0 0 0 3px #fff;
+        }
+
+        h1 {
+            font-size: 24pt;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 15pt;
+            color: #007788; 
+            border-bottom: 2px solid #007788;
+            padding-bottom: 5px;
+            margin-top: 30px; 
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .sidebar h2 {
+            margin-top: 45px; 
+        }
+        .sidebar h2:first-of-type {
+            margin-top: 15px; 
+        }
+
+        .education-title {
+            /* 修正：放大字體 */
+            font-size: 10.5pt;
+        }
+        
+        .summary-box {
+            background-color: #F4F9FA;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #007788;
+        }
+        .summary-box p {
+            margin: 0;
+            /* 修正：放大字體 */
+            font-size: 10.5pt;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify; 
+            text-justify: inter-ideograph;
+        }
+        
+        .company-name {
+            font-weight: 700; 
+            color: #007788; 
+            margin-bottom: 2px;
+            display: block; 
+            /* 修正：放大字體 */
+            font-size: 11.5pt; 
+        }
+        .role-title-exp {
+            /* 修正：放大字體 */
+            font-size: 11pt;
+            font-weight: 500;
+        }
+
+        .skill-list, .exp-detail {
+            list-style-type: circle; 
+            padding-left: 20px;
+        }
+        
+        .section-item {
+            margin-bottom: 12px;
+        }
+        .section-item:last-of-type {
+            margin-bottom: 15px;
+        }
+
+        .exp-detail li {
+            margin-bottom: 5px;
+            text-align: justify; 
+            text-justify: inter-ideograph;
+        }
+        
+        .contact-item {
+            margin-bottom: 8px;
+            text-align: left;
+            display: flex; 
+            word-break: break-all; 
+        }
+        .contact-item strong {
+            display: inline-block;
+            width: 45px; 
+            color: #555;
+            flex-shrink: 0; 
+            margin-right: 5px; 
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .portfolio-card {
+            background-color: #F4F9FA;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            border: 1px solid #eee;
+        }
+
+        .portfolio-card-img {
+            height: 60px;
+            color: white; 
+            text-align: center;
+            font-weight: 700;
+            padding: 5px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-text-wrapper {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px; 
+            border-radius: 3px;
+            width: 90%; 
+            box-sizing: border-box;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-text-wrapper > div:first-child {
+            font-size: 11pt;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .portfolio-card-feature { 
+            /* 修正：放大字體 */
+            font-size: 9.5pt;
+            font-weight: 500; 
+            margin-top: 2px;
+            line-height: 1.3;
+            color: white; 
+        }
+
+        .portfolio-card-content {
+            padding: 6px 8px;
+        }
+        .portfolio-card-content h4 {
+            margin: 0 0 2px 0;
+            /* 修正：放大字體 */
+            font-size: 10.5pt;
+            color: #007788;
+            font-weight: 600;
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis;
+        }
+        .portfolio-card-content p {
+            margin: 0;
+            /* 修正：放大字體 */
+            font-size: 9pt;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>李文超 <span style="font-size: 20pt; font-weight: 300;">Alvin Li</span></h1>
+            <div class="title">現任奧美集團資深活動暨平面製管 | Senior Specialist, Print&Event Production</div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                
+                <div class="portrait-box">
+                    <img src="Image.png" alt="李文超 Alvin Li 頭像" class="portrait">
+                </div>
+                
+                <h2>個人資訊 | CONTACT</h2>
+                <div class="contact-item"><strong>手機</strong>0905-121-981</div>
+                <div class="contact-item"><strong>Email</strong>mub061@gmail.com</div>
+                <div class="contact-item"><strong>地址</strong>新北市永和區</div>
+                <div class="contact-item"><strong>生日</strong>1981/08/07</div>
+                <div class="contact-item"><strong>駕照</strong>普通重型機車、普通小型車</div>
+
+                <h2>專業總結 | SUMMARY</h2>
+                <div class="summary-box">
+                    <p>
+                        廣告從業年資達13年，擁有公關、活動、互動科技領域的深厚經驗。曾任活動公關公司資深專案經理、互動設計專案經理、獨立專案製作人。
+                    </p>
+                    <p style="margin-top: 10px;">
+                        擅長專案整合與製管，具備工科背景與企劃能力，能完美交付創意與資源，並在活動執行中提供快速的應變與判斷力。
+                    </p>
+                </div>
+
+                <h2>核心技能 | EXPERTISE</h2>
+                <ul class="skill-list">
+                    <li>專案規劃與期程控管</li>
+                    <li>預算編製與成本控管</li>
+                    <li>活動企劃與簡報提案</li>
+                    <li>現場軟硬體規劃整合</li>
+                    <li>供應商管理與發包議價</li>
+                    <li>互動科技諮詢與整合</li>
+                    <li>燈光、音響、舞台佈置</li>
+                    <li>品質監督與製作物驗收</li>
+                </ul>
+
+                <h2>學歷 | EDUCATION</h2>
+                <div class="section-item">
+                    <div class="education-title">私立世新大學 | 公共關係暨廣告學系 (大學)</div>
+                    <div class="exp-date">2009/09 - 2011/06</div>
+                </div>
+                <div class="section-item">
+                    <div class="education-title">中華技術學院 | 電子工程系 (二專)</div>
+                    <div class="exp-date">2001/09 - 2003/06</div>
+                </div>
+                
+                <h2>能力與證照 | LICENSE</h2>
+                <ul class="skill-list">
+                    <li>AI輔助數位工具應用</li>
+                    <li>RFID/無線技術應用與設備</li>
+                    <li>PC Offices 系統操作</li>
+                    <li>丙級電腦軟體應用技術士</li>
+                    <li>丙級工業電子技術士</li>
+                </ul>
+            </div>
+
+            <div class="main-info">
+                
+                <h2>精選作品 | FEATURED PROJECTS</h2>
+                <div style="font-size: 10.5pt; color: #555; margin-top: -10px; margin-bottom: 18px; border-left: 3px solid #00A8A0; padding-left: 10px;">
+                    以下為在奧美集團及過往任職期間，負責專案管理、互動設計或主導執行之代表案例：
+                </div>
+
+                <div class="portfolio-grid">
+                    
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #00A8A0;">
+                            <div class="card-text-wrapper">
+                                <div>多喝水</div>
+                                <div class="portfolio-card-feature">🏆 第47屆時報金像獎 銅獎</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>多喝水 - 多喝水「搖店」年度活動</h4>
+                            <p>由概念發想到落地執行均全程參與，確保創意與技術完美結合，成功交付年度品牌活動。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #6d4c41;">
+                            <div class="card-text-wrapper">
+                                <div>拉亞漢堡</div>
+                                <div class="portfolio-card-feature">👨‍🍳 愛德華李主廚親臨現場</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>拉亞漢堡 - 主廚品牌活動</h4>
+                            <p>負責專案製作物發包、詢價、監工與驗收，確保主廚品牌活動的品質與製程符合要求。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #00a859;">
+                            <div class="card-text-wrapper">
+                                <div>海尼根</div>
+                                <div class="portfolio-card-feature">🎉 百位KOL到場見證活動</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>海尼根 - 全新品牌發表會</h4>
+                            <p>主責品牌全新產品發表會的現場互動裝置設計規劃，並管理預算編製、供應商調度及高品質執行交付。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #041A25;">
+                            <div class="card-text-wrapper">
+                                <div>NIKE</div>
+                                <div class="portfolio-card-feature">💡 即時互動投影</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>NIKE - 寫下你的跑者宣言</h4>
+                            <p>結合手寫宣言系統與即時影像投影，將跑者的宣言即時呈現在NEO19外牆上，專案負責系統規劃與執行維護。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #ffb300;">
+                            <div class="card-text-wrapper">
+                                <div>統一麥香</div>
+                                <div class="portfolio-card-feature">🏃 共巡迴34所高中大學</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>統一麥香 - 超友力擂台賽</h4>
+                            <p>負責體感互動設施整體規劃。涵蓋硬體選型、互動流程設計、素材製作溝通與現場技術支援。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img" style="background-color: #f44336;">
+                            <div class="card-text-wrapper">
+                                <div>Coca-Cola</div>
+                                <div class="portfolio-card-feature">🏆 2015 4A廣告獎金獎</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h4>可口可樂 - 客製化姓名瓶</h4>
+                            <p>前端硬體設施規劃與施工，確保瓶身製作機台、互動介面與現場設備的順暢整合，提供高品質的消費者體驗。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>工作經歷 | WORK EXPERIENCE (總年資約13年)</h2>
+                
+                <div class="section-item">
+                    <div class="company-name">奧美廣告股份有限公司 (奧美集團, 廣告行銷公關業)</div>
+                    <div class="role-title-exp">資深活動暨平面製管 | Senior Specialist, Print&Event Production</div>
+                    <div class="exp-date">2022/10 - 至今</div>
+                    <ul class="exp-detail">
+                        <li>專案前端硬體規劃、技術可行性評估，以及供應商的遴選與溝通，確保技術與創意無縫接軌。</li>
+                        <li>核心職責為承接創意、管理所有資源，並將成品完美交付。</li>
+                        <li>制定時程表、品質標準與驗收規範，實時追蹤進度。</li>
+                        <li>建立及維護供應商資料庫，負責供應商評估、詢議價與合約簽訂。</li>
+                    </ul>
+                </div>
+                
+                <div class="section-item">
+                    <div class="company-name">義傑事業股份有限公司 (運動服務業)</div>
+                    <div class="role-title-exp">資深專案經理 | Senior Project Manager</div>
+                    <div class="exp-date">2021/12 - 2022/10</div>
+                    <ul class="exp-detail">
+                        <li>負責運動賽事的賽道規劃、硬體發包及現場執行管理，確保活動順利且安全舉行。</li>
+                        <li>主責專案：2023 SUPERACE 超馬多日賽【阿里山站】、基隆綠能馬拉松、宜蘭五結走尪路跑嘉年華、雙北城市馬拉松。</li>
+                    </ul>
+                </div>
+
+                <div class="section-item">
+                    <div class="company-name">馬蹄鐵創意有限公司 (廣告行銷公關業)</div>
+                    <div class="role-title-exp">專案經理 | Project Manager</div>
+                    <div class="exp-date">2019/07 - 2021/12</div>
+                    <ul class="exp-detail">
+                        <li>負責業務開發、企畫案撰寫、比稿及簡報。</li>
+                        <li>主責專案：海尼根全新品牌發表會、Netflix罪夢者消費者活動。</li>
+                    </ul>
+                </div>
+
+                <div class="section-item">
+                    <div class="company-name">藝次元互動科技股份有限公司 (廣告行銷公關業)</div>
+                    <div class="role-title-exp">專案經理 | Project Manager (互動科技專業)</div>
+                    <div class="exp-date">2015/03 - 2019/03</div>
+                    <ul class="exp-detail">
+                        <li>提供廣告代理商互動科技諮詢，負責 UI/UX 流程、Wireframe 及 Content 製作溝通。</li>
+                        <li>主責互動專案：NIKE、Coca-Cola、Glenfiddich、統一麥香等品牌的互動行銷案。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
